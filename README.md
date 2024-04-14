@@ -24,3 +24,4 @@
 | 2024/04/12 | [京大理学部 物理科学課題演習 C1 （その５）](https://qiita.com/sasakitakanori/items/b1a0c54b6a566166d80e)   | 同上。PythonはLU分解一発でできるから, Cはたいへん。  |
 | 2024/04/13 | [京大理学部 物理科学課題演習 C1 （その６）](https://qiita.com/sasakitakanori/items/732e31edf599e054caac)   | 謎バグに延々と悩まされていた, 教訓: ポインタ変数のインクリメントの挙動について理解する  |
 | 2024/04/13 | [京大理学部 物理科学課題演習 C1 （その７）](https://qiita.com/sasakitakanori/items/ff85a44a473b0a88758e)   | [これ](https://qiita.com/nyan99/items/0ebb446028b069a1e9e4) に悩まされてた。もう大丈夫  |
+| 2024/04/14 | [京大理学部 物理科学課題演習 C1 （その８）](https://qiita.com/sasakitakanori/items/ebaf980a1cd52cf0f634)   | Pythonで連立微分方程式をRK4で書くのめんどくさかったけど, ポインタとか使えるcだと割と簡単に実装できてすごい偉い, ありがたい  |
