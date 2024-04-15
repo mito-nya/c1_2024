@@ -1,3 +1,14 @@
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+ tex2jax: {
+ inlineMath: [['$', '$'] ],
+ displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+ }
+ });
+</script>
+
 # c1_2024
 
 ## これは何
@@ -25,4 +36,5 @@
 | 2024/04/13 | [京大理学部 物理科学課題演習 C1 （その６）](https://qiita.com/sasakitakanori/items/732e31edf599e054caac)   | 謎バグに延々と悩まされていた, 教訓: ポインタ変数のインクリメントの挙動について理解する  |
 | 2024/04/13 | [京大理学部 物理科学課題演習 C1 （その７）](https://qiita.com/sasakitakanori/items/ff85a44a473b0a88758e)   | [これ](https://qiita.com/nyan99/items/0ebb446028b069a1e9e4) に悩まされてた。もう大丈夫  |
 | 2024/04/14 | [京大理学部 物理科学課題演習 C1 （その８）](https://qiita.com/sasakitakanori/items/ebaf980a1cd52cf0f634)   | Pythonで連立微分方程式をRK4で書くのめんどくさかったけど, ポインタとか使えるcだと割と簡単に実装できてすごい偉い, ありがたい  |
-| 2024/04/15 | [京大理学部 物理科学課題演習 C1 （その９）](https://qiita.com/sasakitakanori/items/bc924f5ab5fa29105d59)   | 二体問題とか, RK4でエネルギーがかなりの精度で保存されていることが確認できたのがよかった  |
+| 2024/04/15 | [京大理学部 物理科学課題演習 C1 （その９）](https://qiita.com/sasakitakanori/items/bc924f5ab5fa29105d59)   | 二体問題とか。RK4でエネルギーがかなりの精度で保存されていることが確認できたのがよかった  |
+| 2024/04/15 | [京大理学部 物理科学課題演習 C1 （その１０）](https://qiita.com/sasakitakanori/items/a1831f65043d20190c93)   | 「台形公式は周期関数で強い, シンプソンは非周期関数で強い」みたいな結果を期待したが$\int_0^1 e^xdx$で刻み幅を結構細かくしないとすごい微妙な結果になった。この範囲では割といい精度で計算してくれると思ったが… 逆に$\sin x$の積分ではどちらとも良い精度で計算してくれたが, これは割と想定通りなので安心した。  |
