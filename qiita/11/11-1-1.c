@@ -39,11 +39,11 @@ void out(double a, double dx, int I, int N, double *upt){
     }
 }
 int main(void){
-    int I=100;
+    int I=30;
     int N=1000;
     double a=-1.;
     double b=2.;
-    double dt=1.e-4;
+    double dt=1.e-3;
     double dx=(b-a)/(I+0.);
     double u[I][N];
     expli(a, dx, I, dt, N, &u[0][0], f);
