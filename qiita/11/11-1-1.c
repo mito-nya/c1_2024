@@ -6,14 +6,14 @@
 #define PI 3.14159265
 
 double f(double x){
-    return exp(-1*pow((x-.5), 2.)/.25);
+    return exp(-1*(x-.5)*(x-.5)/.25);
 }
 
 // 2次元配列として, 空間の配列と時間の配列を持つようにする
-void expli(double dx, int I, double dt, int N, double *upt, double funcpt(double x)){
+void expli(double a, double dx, int I, double dt, int N, double *upt, double funcpt(double x)){
     // 初期値の設定
     for(int i=0;i<I;i++){
-        *(upt+i)=funcpt(i*dx);
+        *(upt+i)=funcpt(a+i*dx);
     }
     // 時間発展を計算していく
     for(int i=1;i<N;i++){
@@ -21,7 +21,7 @@ void expli(double dx, int I, double dt, int N, double *upt, double funcpt(double
         *(upt+i*I+0)=*(upt+(i-1)*I+0);
         // 間を埋める
         for(int j=1;j<I-1;j++){
-            *(upt+i*I+j) = *(upt+(i-1)*I+j) + dt/dx/dx * *(upt+(i-1)*I+j+1) - 2. * *(upt+(i-1)*I+j) + *(upt+(i-1)*I+j-1);
+            *(upt+i*I+j) = *(upt+(i-1)*I+j) + dt/dx/dx * (*(upt+(i-1)*I+j+1) - 2. * *(upt+(i-1)*I+j) + *(upt+(i-1)*I+j-1));
         }
         // 境界条件
         *(upt+i*I+I-1)=*(upt+(i-1)*I+I-1);
@@ -40,13 +40,13 @@ void out(double a, double dx, int I, int N, double *upt){
 }
 int main(void){
     int I=100;
-    int N=150;
+    int N=1000;
     double a=-1.;
     double b=2.;
-    double dt=1e-5;
+    double dt=1.e-4;
     double dx=(b-a)/(I+0.);
     double u[I][N];
-    expli(dx, I, dt, N, &u[0][0], f);
+    expli(a, dx, I, dt, N, &u[0][0], f);
     out(a, dx, I, N, &u[0][0]);
     return 0;
 }
