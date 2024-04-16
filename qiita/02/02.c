@@ -2,7 +2,7 @@
 #include <math.h>
 
 int calc(float a, float b, float c){
-    float diff=1e-5;
+    float diff=1.e-5;
     float D=b*b-4.*a*c;
     float x1, x2, re, im;
     if(abs(a-0)<diff){
@@ -29,7 +29,6 @@ int calc(float a, float b, float c){
 
 int main(void){
     float a, b, c;
-    float D, x1, x2;
     printf("a, b, c?: \n");
     scanf("%f%f%f", &a, &b, &c);
     calc(a, b, c);
