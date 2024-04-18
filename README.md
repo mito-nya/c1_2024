@@ -30,3 +30,4 @@
 | 2024/04/15 | [京大理学部 物理科学課題演習 C1 （その１１）](https://qiita.com/sasakitakanori/items/adecf543657de8a6fdfc)   | explicit methodだけやった, が, 明らかに変なので困っている。  |
 | 2024/04/16 | [京大理学部 物理科学課題演習 C1 （その１１）](https://qiita.com/sasakitakanori/items/adecf543657de8a6fdfc)   | TAさんに見ていただいたところ, しょうもないミスだったので直した。ここまでずっと悩んでいたのは久しぶりだ…… 拡散数の条件で, dxの精度がさほどでも, dtの精度をかなり上げないといけないので, 特にGaussianとかはいっぱい時間回さないとなかなか緩和してくれなくて大変。  |
 | 2024/04/17 | [京大理学部 物理科学課題演習 C1 （その１１）](https://qiita.com/sasakitakanori/items/adecf543657de8a6fdfc)   | 今日はimplicit。連立方程式を解くのにLU分解を実装したらバグってｓｐれがとれないのでまた明日…  |
+| 2024/04/18 | [京大理学部 物理科学課題演習 C1 （その１１）](https://qiita.com/sasakitakanori/items/adecf543657de8a6fdfc)   | 終わり！！！！！！！きれいに緩和してくれました。計算量, 使用メモリ量の改善の余地はかなりあると思う, 例えば今回Gauss消去で連立方程式を解いたが, たぶん最初にAをLU分解しておいたらまとめて1回で済むので早そう  |

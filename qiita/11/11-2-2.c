@@ -6,7 +6,8 @@
 #define PI 3.14159265
 
 double f(double x){
-    return exp(-1*(x-.5)*(x-.5)/.25);
+    if(x<.5) return 1.;
+    else return 0.;
 }
 
 /* 連立一次方程式を解くための関数（ガウス・ジョルダンの消去法） */
@@ -77,8 +78,8 @@ void debug(int M, int N, double *mpt){
 int main(void){
     int I=100;
     int N=1000;
-    double a=-1.;
-    double b=2.;
+    double a=0.;
+    double b=1.;
     double dt=1.e-3;
     double dx=(b-a)/(I+0.);
     double A[I][I];
