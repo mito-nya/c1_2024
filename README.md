@@ -5,6 +5,8 @@
 
 ## フォルダ構成
 <dl>
+  <dt>fortran/</dt>
+  <dd>たまにFortranで遊びます</dd>
   <dt>qiita/zz</dt>
   <dd>佐々木先生の授業資料の課題をやるところ</dd>
 </dl> 
@@ -38,3 +40,4 @@
 | 2024/04/22 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 多項式のfitting。ライブラリを使うだけで楽にできた。行列のポインタの扱いにも慣れてきたと思ってる。  |
 | 2024/04/26 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | ここ数日はBondi Flowをやっていた, ちょっと気になったので[Bondi (1952)](https://ui.adsabs.harvard.edu/abs/1952MNRAS.112..195B/abstract)も読んでいた  |
 | 2024/04/30 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 銀河ポテンシャル。前のケプラー問題のコードそのまま使った。  |
+| 2024/04/30 | [Fortran](https://www7b.biglobe.ne.jp/~fortran/education/fortran90/sec0.html)   | 時代はFortranなので, Fortranで遊びました。  |
