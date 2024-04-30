@@ -37,3 +37,4 @@
 | 2024/04/21 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 宇宙の晴れ上がり。これはやることは実質的にはplotだけだったが, 延々にバグが取れなくて困っていた。最終的には二分法の初期値を引くほど小さくしたらうまくいった。一応見積もってはいたが少し甘かったのかもしれない。伏線回収した。  |
 | 2024/04/22 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 多項式のfitting。ライブラリを使うだけで楽にできた。行列のポインタの扱いにも慣れてきたと思ってる。  |
 | 2024/04/26 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | ここ数日はBondi Flowをやっていた, ちょっと気になったので[Bondi (1952)](https://ui.adsabs.harvard.edu/abs/1952MNRAS.112..195B/abstract)も読んでいた  |
+| 2024/04/30 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 銀河ポテンシャル。前のケプラー問題のコードそのまま使った。  |
