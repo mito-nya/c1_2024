@@ -41,3 +41,5 @@
 | 2024/04/26 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | ここ数日はBondi Flowをやっていた, ちょっと気になったので[Bondi (1952)](https://ui.adsabs.harvard.edu/abs/1952MNRAS.112..195B/abstract)も読んでいた  |
 | 2024/04/30 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 銀河ポテンシャル。前のケプラー問題のコードそのまま使った。  |
 | 2024/04/30 | [Fortran](https://www7b.biglobe.ne.jp/~fortran/education/fortran90/sec0.html)   | 時代はFortranなので, Fortranで遊びました。  |
+| 2024/04/30 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | Lane-Emden 方程式。去年の前期の重力のレポートで以前書いていたので理論的な話は問題なかった。コードも前書いたもの[09-2.c](https://github.com/mito-nya/c1_2024/blob/test/qiita/09/09-2.c)を流用。なぜか関数fの定義で戻り値をreturnしてなくて無限に時間を食いました……エラー吐かない系バグってしんどいですよね！！  |
+| 2024/05/03 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 重力レンズ。データが変な挙動しまくりでバグ取りに悩まされました。時間かかりすぎている気がする。  |
