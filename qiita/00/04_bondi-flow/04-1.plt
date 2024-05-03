@@ -1,6 +1,6 @@
-set terminal png #ターミナルをpngに設定
+set terminal pngcairo #ターミナルをpngに設定
 set output "04-1.png" #graph.pngで出力
-
+unset key
 
 set xrange [0:10]
 
