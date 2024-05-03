@@ -1,3 +1,5 @@
+// BHに近いところで刻み幅を細かくして, 十分な精度か確かめる
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -44,11 +46,11 @@ int main(void){
     int n, imax, times;
     double rg=2.*G*M/c/c; // シュバルツシルト半径をとりあえず定義しておく
 
-    h=3.e-3;
+    h=1.e-3;
     imax=2.*PI/h+1;
     n=2;
 
-    times=60;
+    times=8; // ここを1に
 
     double ans[1+imax][2*times];
     for(int i=0;i<1+imax;i++){
@@ -57,13 +59,16 @@ int main(void){
         }
     }
     
-    double y0=0.1;
-    double ymax=9.;
-    double dy=(ymax-y0)/(times+0.);
-    double xx=10.;
+    // double y0=0.1;
+    // double ymax=9.;
+    // double dy=(ymax-y0)/(times+0.);
+    double dy=1.e-3;
+    double y0=pow(27., .5)-3.*dy;
+    double xx=10000.;
 
     for(int j=0;j<times; j++){
         double yy=y0+j*dy;
+        // double yy=pow(27, .5);
         double r0=pow(xx*xx+yy*yy, .5);
         double phi=atan(yy/xx);
         double phimax=4*PI;
@@ -79,7 +84,7 @@ int main(void){
             phi+=dphi;
             ans[i][2*j]=phi;
             ans[i][2*j+1]=1./y[0];
-            if(y[0]>.5 || y[0]<0.03){
+            if(y[0]>.5 || y[0]<0.0001){
                 for(int k=i+1;k<1+imax; k++){
                     ans[k][2*j]=ans[k-1][2*j];
                     ans[k][2*j+1]=ans[k-1][2*j+1];
