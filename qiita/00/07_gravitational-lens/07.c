@@ -42,14 +42,13 @@ void RK4(double x, double *y, int n, double h, double funcpt(int i, double x, do
 int main(void){
     double x, y[2], h;
     int n, imax, times;
-    double rg=2.*G*M/c/c;
+    double rg=2.*G*M/c/c; // シュバルツシルト半径をとりあえず定義しておく
 
     h=1.e-2;
     imax=2.*PI/h+1;
-    x=0.;
     n=2;
 
-    times=30;
+    times=60;
 
     double ans[1+imax][2*times];
     for(int i=0;i<1+imax;i++){
@@ -67,7 +66,7 @@ int main(void){
         double yy=y0+j*dy;
         double r0=pow(xx*xx+yy*yy, .5);
         double phi=atan(yy/xx);
-        double phimax=2*PI-phi;
+        double phimax=4*PI;
         double dphi=(phimax-phi)/(imax+0.);
         y[0]=1./r0;
         y[1]=pow(1.-rg/r0, .5)/r0/tan(phi);
