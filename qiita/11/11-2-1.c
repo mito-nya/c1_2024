@@ -1,4 +1,4 @@
-// imlicit
+// implicit
 
 #include <stdio.h>
 #include <math.h>

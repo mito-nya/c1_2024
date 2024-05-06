@@ -1,13 +1,14 @@
-// implicit
-
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 #define PI 3.14159265
 
 double f(double x){
-    if(x<.5) return 1.;
-    else return 0.;
+    if(0.4 < x && x < 0.6){
+        return 1.;
+    }else{
+        return 0.;
+    }
 }
 
 /* 連立一次方程式を解くための関数（ガウス・ジョルダンの消去法） */
@@ -77,32 +78,26 @@ void debug(int M, int N, double *mpt){
 
 int main(void){
     int I=100;
-    int N=1000;
-    double a=0.;
-    double b=1.;
+    int N=1000; // 時間のグリッド数
+    double xmin=0.;
+    double xmax=1.;
     double dt=1.e-3;
-    double dx=(b-a)/(I+0.);
-    double A[I][I];
+    double dx=(xmax-xmin)/(I+0.);
+    double b=dx*dx/dt;
+    double A[I][I]; // Ax=bのA
+    double bmat[I]; // Ax=bのb
+    double u[I][N]; // 出力用
 
-    // double L[I][I];
-    // double U[I][I];
-    // LU(I, &A[0][0], &L[0][0], &U[0][0]);
-
-    // debug(I, I, &L[0][0]);
-    // printf("\n");
-    // debug(I, I, &U[0][0]);
-    double bmat[I];
-    double u[I][N];
     for(int i=0;i<I; i++){
         for(int j=0; j<N; j++){
             u[i][j]=0.;
         }
     }
-    // solve(a, dx, dt, I, N, &L[0][0], &U[0][0], &u[0][0], f);
     
     for(int i=0; i<I; i++){
-        bmat[i]=f(a+i*dx);
-        u[i][0]=f(a+i*dx);
+        bmat[i]=f(xmin+i*dx);
+        // u[i][0]=f(xmin+i*dx); // 面密度
+        u[i][0]=i*dx*f(xmin+i*dx); // 角運動量
     }
 
     for(int t=1; t<N; t++){
@@ -112,40 +107,27 @@ int main(void){
                 A[i][j]=0.;
             }
         }
-        A[0][0]=dx*dx/dt;
+        A[0][0]=b;
         for(int i=1;i<I-1;i++){
-            A[i][i-1]=-1.;
-            A[i][i]=2.+dx*dx/dt;
-            A[i][i+1]=-1.;
+            A[i][i-1]=-i;
+            A[i][i]=pow(i+1, 3.)*b+2*i+2;
+            A[i][i+1]=-i-2.;
         }
-        A[I-1][I-1]=dx*dx/dt;
-
-        // debug(I, I, &A[0][0]);
+        A[I-1][I-1]=pow(I, 3.)*b;
         
         for(int i=0; i<I; i++){
-            bmat[i]=dx*dx/dt *bmat[i];
+            bmat[i]=pow(i+1, 3.)*b*bmat[i];
         }
         // 解く
         simeq(&A[0][0], &bmat[0], I);
         // debug(I, N, &u[0][0]);
         for(int i=0; i<I; i++){
-            u[i][t]=bmat[i];
+            // u[i][t]=bmat[i]; // 面密度
+            u[i][t]=i*dx*bmat[i]; // 角運動量
         }
     }
 
-    // simeq(a, dx, dt, I, N, &A[0][0], &bmat[0], &u[0][0], f);
-    out(a, dx, I, N, &u[0][0]);
+    out(xmin, dx, I, N, &u[0][0]);
 
-    // debug(I, I, &A[0][0]);
     return 0;
 }
-
-// int main(void){
-//     double A[2][2]={{1., 2.}, {3., 1.}};
-//     double L[2][2]={{0., 0.}, {0., 0.}};
-//     double U[2][2]={{0., 0.}, {0., 0.}};
-//     LU(2, &A[0][0], &L[0][0], &U[0][0]);
-//     debug(2, 2, &L[0][0]);
-//     printf("\n");
-//     debug(2, 2, &U[0][0]);
-// }
