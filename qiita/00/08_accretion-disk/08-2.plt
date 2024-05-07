@@ -5,9 +5,9 @@ unset key
 
 set multiplot layout 2,1
 set yrange [0:1]
-plot for [i=0:9] "r1.data" u 1:100*i+2 w l
+plot for [i=0:9] "r1.data" u 1:10*i+2 w l
 set yrange [0:1]
-plot for [i=0:9] "r2.data" u 1:100*i+2 w l
+plot for [i=0:9] "r2.data" u 1:10*i+2 w l
 
 unset multiplot
 set out
