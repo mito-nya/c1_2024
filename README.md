@@ -45,3 +45,4 @@
 | 2024/05/03 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 重力レンズ。データが変な挙動しまくりでバグ取りに悩まされました。時間かかりすぎている気がする。  |
 | 2024/05/04 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 重力レンズ。impact paramの臨界値がびみょいということで色々いじってみた。詳しくは[このpdf](https://github.com/mito-nya/c1_2024/blob/test/qiita/00/07_gravitational-lens/impact-param.pdf)にすごいラフにまとめておいた  |
 | 2024/05/06 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤, ラスト終わり！ただ結果が正しいかあまりよくわからないので, もうちょっと考えます  |
+| 2024/05/06 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤, やっぱなんか変だったので計算に直したらgrid化まちがえてました, これでもなお変なのでもうちょっと確認します  |

@@ -83,7 +83,7 @@ int main(void){
     double xmax=1.;
     double dt=1.e-3;
     double dx=(xmax-xmin)/(I+0.);
-    double b=dx*dx/dt;
+    double b=pow(dx, 4.)/dt;
     double A[I][I]; // Ax=bのA
     double bmat[I]; // Ax=bのb
     double u[I][N]; // 出力用
@@ -96,8 +96,8 @@ int main(void){
     
     for(int i=0; i<I; i++){
         bmat[i]=f(xmin+i*dx);
-        // u[i][0]=f(xmin+i*dx); // 面密度
-        u[i][0]=i*dx*f(xmin+i*dx); // 角運動量
+        u[i][0]=f(xmin+i*dx); // 面密度
+        // u[i][0]=i*dx*f(xmin+i*dx); // 角運動量
     }
 
     for(int t=1; t<N; t++){
@@ -122,8 +122,8 @@ int main(void){
         simeq(&A[0][0], &bmat[0], I);
         // debug(I, N, &u[0][0]);
         for(int i=0; i<I; i++){
-            // u[i][t]=bmat[i]; // 面密度
-            u[i][t]=i*dx*bmat[i]; // 角運動量
+            u[i][t]=bmat[i]; // 面密度
+            // u[i][t]=i*dx*bmat[i]; // 角運動量
         }
     }
 
