@@ -65,17 +65,6 @@ void out(double a, double dx, int I, int N, double *upt){
     }
 }
 
-void debug(int M, int N, double *mpt){
-    for(int i=0; i<M; i++){
-        for(int j=0; j<N; j++){
-            printf("%e ", *(mpt+i*N+j));
-        }
-        printf("\n");
-    }
-    printf("\n");
-}
-
-
 int main(void){
     int I=100;
     int N=1000; // 時間のグリッド数
@@ -84,17 +73,17 @@ int main(void){
     double dt=1.e-3;
     double dx=(xmax-xmin)/(I+0.);
     double b=pow(dx, 4.)/dt;
-    double A[I][I]; // Ax=bのA
-    double bmat[I]; // Ax=bのb
-    double u[I][N]; // 出力用
+    double A[I+1][I+1]; // Ax=bのA
+    double bmat[I+1]; // Ax=bのb
+    double u[I+1][N]; // 出力用
 
-    for(int i=0;i<I; i++){
+    for(int i=0;i<I+1; i++){
         for(int j=0; j<N; j++){
             u[i][j]=0.;
         }
     }
     
-    for(int i=0; i<I; i++){
+    for(int i=0; i<I+1; i++){
         bmat[i]=f(xmin+i*dx);
         u[i][0]=f(xmin+i*dx); // 面密度
         // u[i][0]=i*dx*f(xmin+i*dx); // 角運動量
@@ -102,26 +91,26 @@ int main(void){
 
     for(int t=1; t<N; t++){
         // Aの定義
-        for(int i=0;i<I;i++){
-            for(int j=0;j<I;j++){
+        for(int i=0;i<I+1;i++){
+            for(int j=0;j<I+1;j++){
                 A[i][j]=0.;
             }
         }
         A[0][0]=b;
-        for(int i=1;i<I-1;i++){
-            A[i][i-1]=-i;
-            A[i][i]=pow(i+1, 3.)*b+2*i+2;
-            A[i][i+1]=-i-2.;
+        for(int i=1;i<I;i++){
+            A[i][i-1]=-i+1;
+            A[i][i]=pow(i, 3.)*b+2*i;
+            A[i][i+1]=-i-1.;
         }
-        A[I-1][I-1]=pow(I, 3.)*b;
+        A[I][I]=pow(I, 3.)*b;
         
-        for(int i=0; i<I; i++){
-            bmat[i]=pow(i+1, 3.)*b*bmat[i];
+        for(int i=1; i<I+1; i++){
+            bmat[i]=pow(i, 3.)*b*bmat[i];
         }
+
         // 解く
-        simeq(&A[0][0], &bmat[0], I);
-        // debug(I, N, &u[0][0]);
-        for(int i=0; i<I; i++){
+        simeq(&A[0][0], &bmat[0], I+1);
+        for(int i=0; i<I+1; i++){
             u[i][t]=bmat[i]; // 面密度
             // u[i][t]=i*dx*bmat[i]; // 角運動量
         }
