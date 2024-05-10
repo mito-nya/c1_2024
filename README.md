@@ -5,14 +5,16 @@
 
 ## フォルダ構成
 <dl>
-  <dt>fortran/</dt>
+  <dt>`fortran/`</dt>
   <dd>たまにFortranで遊びます</dd>
-  <dt>qiita/zz</dt>
+  <dt>`self/`</dt>
+  <dd>自分でいろいろいじってみるところ</dd>
+  <dt>`qiita/zz`</dt>
   <dd>佐々木先生の授業資料の課題をやるところ</dd>
 </dl> 
 
 ## やりたいこととそのおおざっぱな目標
-- [ ] 佐々木先生の授業資料 (-04/20)
+- [x] 佐々木先生の授業資料 (-04/20)
 - [ ] 輻射電磁流体シミュレーションの基礎
 - [ ] [Oscillations in star formation and contents of a molecular cloud complex](https://ui.adsabs.harvard.edu/abs/1985A%26A...142..297B/abstract)
   - レポートの案。
