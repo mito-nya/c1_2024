@@ -85,8 +85,8 @@ int main(void){
     
     for(int i=0; i<I+1; i++){
         bmat[i]=f(xmin+i*dx);
-        u[i][0]=f(xmin+i*dx); // 面密度
-        // u[i][0]=i*dx*f(xmin+i*dx); // 角運動量
+        // u[i][0]=f(xmin+i*dx); // 面密度
+        u[i][0]=i*dx*f(xmin+i*dx); // 角運動量
     }
 
     for(int t=1; t<N; t++){
@@ -104,6 +104,8 @@ int main(void){
         }
         A[I][I]=pow(I, 3.)*b;
         
+        // bの定義
+        bmat[0]=b*bmat[0];
         for(int i=1; i<I+1; i++){
             bmat[i]=pow(i, 3.)*b*bmat[i];
         }
@@ -111,8 +113,8 @@ int main(void){
         // 解く
         simeq(&A[0][0], &bmat[0], I+1);
         for(int i=0; i<I+1; i++){
-            u[i][t]=bmat[i]; // 面密度
-            // u[i][t]=i*dx*bmat[i]; // 角運動量
+            // u[i][t]=bmat[i]; // 面密度
+            u[i][t]=i*dx*bmat[i]; // 角運動量
         }
     }
 
