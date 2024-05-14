@@ -1,5 +1,5 @@
 set term gif animate optimize delay 2 size 480,360
-set output '08.gif'
+set output '08-ex.gif'
 
 do for [i = 1:100 ] {
     set multiplot layout 2,1

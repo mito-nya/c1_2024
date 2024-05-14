@@ -1,6 +1,6 @@
 reset
 set terminal pngcairo
-set out "08-2.png"
+set out "08-2-ex.png"
 unset key
 
 set palette model HSV functions gray,1,0.7
