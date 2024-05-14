@@ -50,3 +50,4 @@
 | 2024/05/06 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤, やっぱなんか変だったので計算に直したらgrid化まちがえてました, これでもなお変なのでもうちょっと確認します  |
 | 2024/05/08 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤。あまり期待していた結果が得られないので困っている。  |
 | 2024/05/10 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤。gnuplotでグラデーション使う方法を習得した。むず。境界条件を確認したい。  |
+| 2024/05/14 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤。explicitで解いたらなんか変なので明日バグとります  |
