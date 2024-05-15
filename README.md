@@ -52,3 +52,4 @@
 | 2024/05/10 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤。gnuplotでグラデーション使う方法を習得した。むず。境界条件を確認したい。  |
 | 2024/05/14 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤。explicitで解いたらなんか変なので明日バグとります  |
 | 2024/05/15 | [京大理学部 物理科学課題演習 C1 （例題集）](https://qiita.com/sasakitakanori/items/1264d5955f0a5e9b341d)   | 降着円盤。色々やったが, 数値不安定がどうしても解消されなそう  |
+| 2024/05/16 | 太陽風のParker理論   | 星風の速度をplotするやつ, cで書こうとしたらgnuplotだけで書けちゃいました  |
