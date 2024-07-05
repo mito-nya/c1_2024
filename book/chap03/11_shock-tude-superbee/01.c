@@ -42,6 +42,11 @@ double minmod(double x, double y){
     }
 }
 
+// superbee関数を追記
+double superbee(double r){
+    return fmax(0, fmax(fmin(2*r, 1), fmin(r, 2)));
+}
+
 int main(void){
     double a=-0.5;       // 始点
     double b=0.5;        // 終点
@@ -74,22 +79,23 @@ int main(void){
             int ip = (int)fmin(i+1, I-2);
             int im = (int)fmax(i-1, 0);
 
-            // double rhoL=u[i][0]+0.25*(1-k)*(u[i][0]-u[im][0])+0.25*(1+k)*(u[ip][0]-u[i][0]);
-            // double rhoR=u[i][0]-0.25*(1+k)*(u[i][0]-u[im][0])-0.25*(1-k)*(u[ip][0]-u[i][0]);
-            double rhoL = u[i][0]+0.5*minmod(u[ip][0]-u[i][0], u[i][0]-u[im][0]);
-            double rhoR = u[ip][0]-0.5*minmod(u[ip][0]-u[i][0], u[ipp][0]-u[ip][0]);
-            // double u1L=u[i][1]+0.25*(1-k)*(u[i][1]-u[im][1])+0.25*(1+k)*(u[ip][1]-u[i][1]);
-            // double u1R=u[i][1]-0.25*(1+k)*(u[i][1]-u[im][1])-0.25*(1-k)*(u[ip][1]-u[i][1]);
-            double u1L = u[i][1]+0.5*minmod(u[ip][1]-u[i][1], u[i][1]-u[im][1]);
-            double u1R = u[ip][1]-0.5*minmod(u[ip][1]-u[i][1], u[ipp][1]-u[ip][1]);
-            double vL=u1L/rhoL;
-            double vR=u1R/rhoR;
-            // double u2L=u[i][2]+0.25*(1-k)*(u[i][2]-u[im][2])+0.25*(1+k)*(u[ip][2]-u[i][2]);
-            // double u2R=u[i][2]-0.25*(1+k)*(u[i][2]-u[im][2])-0.25*(1-k)*(u[ip][2]-u[i][2]);
-            double u2L = u[i][2]+0.5*minmod(u[ip][2]-u[i][2], u[i][2]-u[im][2]);
-            double u2R = u[ip][2]-0.5*minmod(u[ip][2]-u[i][2], u[ipp][2]-u[ip][2]);
-            double EL=u2L/rhoL;
-            double ER=u2R/rhoR;
+            double rL[3];
+            double rR[3];
+            double uL[3];
+            double uR[3];
+            for(int j=0; j<3; j++){
+                rL[j]=(u[ip][j]-u[i][j])/(u[i][j]-u[im][j]);
+                rR[j]=(u[ip][j]-u[i][j])/(u[ipp][j]-u[ip][j]);
+                uL[j]=u[i][j]+0.5*superbee(rL[j])*(u[i][j]-u[im][j]);
+                uR[j]=u[ip][j]-0.5*superbee(rR[j])*(u[ipp][j]-u[ip][j]);
+            }
+
+            double rhoL = uL[0];
+            double rhoR = uR[0];
+            double vL = uL[1]/rhoL;
+            double vR = uR[1]/rhoR;
+            double EL = uL[2]/rhoL;
+            double ER = uR[2]/rhoR;
             double pL=(gamma-1)*(rhoL*EL-rhoL*pow(vL, 2.)/2.);
             double pR=(gamma-1)*(rhoR*ER-rhoR*pow(vR, 2.)/2.);
             double HL=EL+pL/rhoL;

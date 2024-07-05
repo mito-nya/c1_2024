@@ -3,7 +3,7 @@ set terminal pngcairo size 840, 1080
 set out "01.png"
 unset key
 
-set multiplot layout 3, 2 title "1st order upwind difference scheme"
+set multiplot layout 3, 2 title "2nd order TVD (superbee + midpoint)"
 
 set xlabel "x"
 set ylabel "rho"
