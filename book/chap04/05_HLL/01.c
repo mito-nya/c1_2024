@@ -5,6 +5,8 @@
 #define PI 3.14159265
 #define gamma 5./3.
 #define MIN_ENERGY 1e-10  // エネルギーの最小値
+#define MIN_RHO 1e-10     // 密度の最小値
+#define MAX_RHO 1e+10     // 密度の最大値
 
 void check_memory_allocation(void *ptr, const char *message) {
     if (ptr == NULL) {
@@ -15,9 +17,12 @@ void check_memory_allocation(void *ptr, const char *message) {
 
 int convert(double *UL, double *UR, double *FL, double *FR, double *flux){
     double rhoL = *(UL+0);
-    if (rhoL < 1e-10) {
+    if (rhoL < MIN_RHO) {
         printf("Warning: rhoL too small, setting to minimum value\n");
-        rhoL = 1e-10;
+        rhoL = MIN_RHO;
+    } else if (rhoL > MAX_RHO) {
+        printf("Warning: rhoL too large, setting to maximum value\n");
+        rhoL = MAX_RHO;
     }
     double uL = *(UL+1)/rhoL;
     double vL = *(UL+2)/rhoL;
@@ -32,9 +37,12 @@ int convert(double *UL, double *UR, double *FL, double *FR, double *flux){
     double csL = sqrt(gamma * pL / rhoL);
 
     double rhoR = *(UR+0);
-    if (rhoR < 1e-10) {
+    if (rhoR < MIN_RHO) {
         printf("Warning: rhoR too small, setting to minimum value\n");
-        rhoR = 1e-10;
+        rhoR = MIN_RHO;
+    } else if (rhoR > MAX_RHO) {
+        printf("Warning: rhoR too large, setting to maximum value\n");
+        rhoR = MAX_RHO;
     }
     double uR = *(UR+1)/rhoR;
     double vR = *(UR+2)/rhoR;
@@ -111,10 +119,10 @@ int main(void){
     double bx = 1.0, by = 1.0;  // 終点
     double dx = 1/32.0, dy = 1/32.0; // 空間刻みの幅
     double nu = 0.2;               // CFL数
-    double dt = 0.0005 * fmin(dx, dy);  // 時間刻みの幅
+    double dt = 0.0001 * fmin(dx, dy);  // 時間刻みの幅をさらに小さく
     int Ix = (bx - ax) / dx + 1;   // 空間ステップ数 (x方向)
     int Iy = (by - ay) / dy + 1;   // 空間ステップ数 (y方向)
-    int N = 0.50 / dt *2000/32000;             // 時間ステップ数
+    int N = 0.50 / dt;             // 時間ステップ数
 
     printf("Ix = %d, Iy = %d, N = %d\n", Ix, Iy, N);
 
@@ -137,6 +145,7 @@ int main(void){
         }
     }
 
+    // 初期条件の設定
     for(int i = 0; i < Ix; i++){
         for(int j = 0; j < Iy; j++){
             for(int index = 0; index < 6; index++){
@@ -190,6 +199,7 @@ int main(void){
 
     printf("Simulation completed\n");
 
+    // ファイルの用意
     char filename[256];
     sprintf(filename, "orszag_tang_output.data");
     FILE *file = fopen(filename, "w");
@@ -200,8 +210,9 @@ int main(void){
 
     printf("File opened: %s\n", filename);
 
-    for(int i = 0; i < Ix; i++){
-        for(int j = 0; j < Iy; j++){
+    // ファイルへの書き込みrho, p, u, v, by
+    for(int j = 0; j < Iy; j++){
+        for(int i = 0; i < Ix; i++){
             double rho = U[i][j][0];
             double u = U[i][j][1]/rho;
             double v = U[i][j][2]/rho;
@@ -211,19 +222,16 @@ int main(void){
             double V = u*u + v*v;
             double e = U[i][j][5];
             double p = fmax((gamma - 1) * (e - rho * V / 2. - B / 2.), MIN_ENERGY);
-            
-            if (isnan(rho) || isnan(u) || isnan(v) || isnan(bx) || isnan(by) || isnan(p)) {
-                printf("NaN detected at x=%e, y=%e before file output: rho=%e, u=%e, v=%e, bx=%e, by=%e, p=%e\n", ax + i * dx, ay + j * dy, rho, u, v, bx, by, p);
-            } else {
-                fprintf(file, "%e, %e, %e, %e, %e, %e, %e\n", ax + i * dx, ay + j * dy, rho, p, u, v, by);
-                printf("Writing data: x=%e, y=%e, rho=%e\n", ax + i * dx, ay + j * dy, rho);
-            }
+
+            fprintf(file, "%e %e %e %e %e %e %e\n", ax + i * dx, ay + j * dy, rho, p, u, v, by);
         }
+        fprintf(file, "\n");  // 空行を挿入してyの変化を示す
     }
 
     fclose(file);
     printf("File closed\n");
 
+    // 動的メモリの解放
     for(int i = 0; i < Ix; i++) {
         for(int j = 0; j < Iy; j++) {
             free(U[i][j]);
