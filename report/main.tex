@@ -412,13 +412,51 @@ MUSCLを用いたときに解が振動してしまうことがある。たとえ
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width = 0.6\linewidth]{fig/limit.png}
+  \includegraphics[width = 0.4\linewidth]{fig/limit.png}
   \caption{$u_{i-1}$と$u_i$を補間して$u_{i+1/2}^{\mathrm{L}}$を求める様子}
   \label{fig:limit}
 \end{figure}
 
+補間によって求められたセル境界の値は$u_{i+1/2}^{\mathrm{L}}>u_{i+1}$となり, 元の値の大小関係が逆転してしまっている。そのため, 勾配に制限をもうけることが必要である。
+
+今回は, 制限関数として最も強いもの (superbee関数) と最も弱いもの (minmo
+d関数) を用いて比較した。
+
+ここで, minmod制限関数は, 
+\begin{equation}
+  \Psi(r)=minmod(r, 1)
+\end{equation}
+で, superbee関数は
+\begin{equation}
+  \Psi(r)=\max[0, \min(2r, 1), \min(r, 2)]
+\end{equation}
+で与えられる。
+
+\subsection{実行結果と比較}
+それぞれの制限関数用いて衝撃波管問題を解いた結果を以下の図に示す。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\linewidth]{../book/chap03/10_shock-tube-minmod/01.png}
+  \caption{衝撃波管問題をminmod制限関数を用いて解いたplot}
+  \label{fig:minmod}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\linewidth]{../book/chap03/11_shock-tude-superbee/01.png}
+  \caption{衝撃波管問題をsuperbee制限関数を用いて解いたplot}
+  \label{fig:superbee}
+\end{figure}
+
+この図の通り, (厳密解と比較しても) 2次精度において解の精度が上がっていることが確認された。また, より強いsuperbee制限関数を用いた場合のplotは, 全体的にシャープな印象を感じ, 特に接触不連続面と膨張波の部分において少ない点数で捉えれているように思った。しかし角が角張っている様子が見られた。この特徴は, 正弦波の線形移流方程式を解いた際にも見られたため, 矩形波を扱う分にはよいが, 多くの場合においてはminmod正弦関数が無難であるように考えられるが, 所々に物理量の振動が見られるため, 結局は精度自体をあげることがベストのように感じた。
+
 \section{最後に・感想}
 有名なテスト問題である衝撃波管問題を通して, 数値計算の様々な手法と考え方について学んだ。ただ, (HLL法は実装できたものの, ) 後半はHLLD法のバグをずっととれずに時間を費やしてしまい, 磁場ありの問題についてレポートをかくことができず, 非常に残念である。今回悔しい結果で終わってしまったため, 今後とも数値計算の勉強自体は続けれていければと思っている。
+
+また, 本レポートでは省略した制限関数を用いて衝撃波管問題を解いた際のコードなど, C1で作成したほぼすべてのコードを, GitHubのPubric Repositryに格納してあるので, 参照いただけますと幸いです。
+
+\url{https://github.com/mito-nya/c1_2024}
 
 \begin{thebibliography}{9}
   \bibitem{matsumoto}
