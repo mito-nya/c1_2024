@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2024.3.9)  16 AUG 2024 15:10
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2024.3.9)  16 AUG 2024 23:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -880,7 +880,13 @@ File: fig/limit.png Graphic file (type bmp)
 <fig/limit.png>
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 416.
-[15] [16] (out/main.aux)
+[15]
+File: ../book/chap03/10_shock-tube-minmod/01.png Graphic file (type bmp)
+<../book/chap03/10_shock-tube-minmod/01.png>
+[16]
+File: ../book/chap03/11_shock-tude-superbee/01.png Graphic file (type bmp)
+<../book/chap03/11_shock-tude-superbee/01.png>
+[17] [18] [19] (out/main.aux)
  ***********
 pLaTeX2e <2023-02-14>+1, based on
 LaTeX2e <2023-11-01> patch level 1
@@ -890,15 +896,15 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0B889AAE3E07CC519F9DCD0A525C3AAD;1490.
+(rerunfilecheck)             Checksum: 086BAEACEF839491DA62A19E90203384;1597.
  ) 
 Here is how much of TeX's memory you used:
- 32916 strings out of 474774
- 654135 string characters out of 5762023
+ 32932 strings out of 474774
+ 654814 string characters out of 5762023
  2156035 words of memory out of 5000000
- 54754 multiletter control sequences out of 15000+600000
+ 54768 multiletter control sequences out of 15000+600000
  581615 words of font info for 147 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,15n,93p,463b,2946s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,93p,601b,2946s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.dvi (16 pages, 96732 bytes).
+Output written on out/main.dvi (19 pages, 101512 bytes).

@@ -1,15 +1,17 @@
 # Fdb version 4
-["dvipdf"] 1723788625.17065 "out/main.dvi" "out/main.pdf" "out/main" 1723788627.40064 0
-  "out/main.dvi" 1723788625 96732 ef2706f9f9f348370723b39c291f7605 "latex"
+["dvipdf"] 1723819316.08685 "out/main.dvi" "out/main.pdf" "out/main" 1723819322.17539 0
+  "out/main.dvi" 1723819315 101512 0f6712216ea05493ee6f70ef9baa684d "latex"
   (generated)
   "out/main.pdf"
   (rewritten before read)
-["latex"] 1723788620.28052 "c:/Users/ohrtt/Documents/GitHub/c1_2024/report/main.tex" "out/main.dvi" "main" 1723788627.38923 0
+["latex"] 1723819302.94991 "c:/Users/ohrtt/Documents/GitHub/c1_2024/report/main.tex" "out/main.dvi" "main" 1723819322.14832 0
   "../book/chap03/01_roe-1/01.c" 1721292729 4205 64b4263ef2e02748665b1f2bc370553a ""
   "../book/chap03/01_roe-1/out/01-2-2.png" 1719611678 20287 500454ebc0de92b65a616b4cb336f1ca ""
   "../book/chap03/02_entropy-modify/out/01.png" 1719611621 20201 0cb224ae064bff078e8a12b5a5093581 ""
+  "../book/chap03/10_shock-tube-minmod/01.png" 1720423323 33857 e07df98fe000d79d4930455d76dbfa21 ""
   "../book/chap03/10_shock-tube-minmod/03.png" 1720423629 8434 d80f0b325ae08fd460e61bfb0a5b5f45 ""
-  "c:/Users/ohrtt/Documents/GitHub/c1_2024/report/main.tex" 1723788614 20601 38cd25ad2ac17d64d9ac3322879bf9f0 ""
+  "../book/chap03/11_shock-tude-superbee/01.png" 1720180786 33853 47338969c21982500ada32cf6a40775b ""
+  "c:/Users/ohrtt/Documents/GitHub/c1_2024/report/main.tex" 1723819287 22891 4e5e239886eae5dddf3ca757802df721 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1709917522 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1709917109 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm" 1709920262 468 53f854284f6afa6c36aaa2d1090ecc12 ""
@@ -229,9 +231,9 @@
   "fig/limit.png" 1723788228 34533 8c84df637c3abe48dd613bbbe0cc6776 ""
   "fig/riemannfan.png" 1723707154 382204 f8730be290e3f364cff2fed806b55def ""
   "fig/shocktube.png" 1723704212 16254 d01b71767c33a0afb21dbe42b41dfea1 ""
-  "main.tex" 1723788614 20601 38cd25ad2ac17d64d9ac3322879bf9f0 ""
-  "out/main.aux" 1723788625 4734 7c7aa28a26f23a1167e4fb49ff31e507 "latex"
-  "out/main.out" 1723788625 1490 0b889aae3e07cc519f9dcd0a525c3aad "latex"
+  "main.tex" 1723819287 22891 4e5e239886eae5dddf3ca757802df721 ""
+  "out/main.aux" 1723819315 5557 d15352ecf48b10240eb7c7832306e8b2 "latex"
+  "out/main.out" 1723819315 1597 086baeacef839491da62a19e90203384 "latex"
   (generated)
   "out/main.aux"
   "out/main.dvi"

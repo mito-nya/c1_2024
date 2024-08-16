@@ -449,6 +449,14 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT ../book/chap03/10_shock-tube-minmod/01.png
+INPUT ../book/chap03/10_shock-tube-minmod/01.png
+INPUT ../book/chap03/10_shock-tube-minmod/01.png
+INPUT extractbb -B cropbox -O ../book/chap03/10_shock-tube-minmod/01.png
+INPUT ../book/chap03/11_shock-tude-superbee/01.png
+INPUT ../book/chap03/11_shock-tude-superbee/01.png
+INPUT ../book/chap03/11_shock-tude-superbee/01.png
+INPUT extractbb -B cropbox -O ../book/chap03/11_shock-tude-superbee/01.png
 INPUT out/main.aux
 INPUT out/main.out
 INPUT out/main.out
