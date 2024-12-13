@@ -1,8 +1,8 @@
 reset
 unset multiplot
-set terminal pngcairo size 720, 640
+set terminal pngcairo size 840, 480
 set out "02.png"
-set multiplot layout 2,1
+set multiplot layout 1,2
 set style fill solid border lc rgb "black"
 
 set title sprintf("t=%d", 85960)

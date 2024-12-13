@@ -1,10 +1,10 @@
 reset
-set term gif animate optimize delay 2 size 720,640
+set term gif animate optimize delay 2 size 840,480
 set output '01.gif'
 set style fill solid border lc rgb "black"
 
 do for [time = 0:8596] {
-    set multiplot layout 2,1
+    set multiplot layout 1,2
     set title sprintf("t=%06d", time*10)
     set xrange [0.5:6.5]    
     set yrange [0:30]
